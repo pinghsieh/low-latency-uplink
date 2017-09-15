@@ -22,17 +22,24 @@ u = 0;
 swap_id = get_swapid(N_links); 
 rn = get_weight(deficit_vec);
 access_prob = exp(max(0,rn).*channel_prob)./(exp(max(0,rn).*channel_prob) + gamma);
-[backoff_vec, priority_vec] = get_backoff(priority_vec, swap_id, access_prob);
+backoff_vec = get_backoff(priority_vec, swap_id, access_prob);
 packets_vec = get_arrivals(arrival_type, arrival_per_frame_max);
 deficit_vec = deficit_vec + packets_vec.*(qn);
 
+
 while u < N_slots_per_frame
     available_nodes = find((backoff_vec >= 0).*(packets_vec > 0));
+    node_count = N_links - length(available_nodes) + 1;
     if isempty(available_nodes)
         break
     else
         [val, nid] = min(backoff_vec(available_nodes)); 
         backoff_vec = backoff_vec - val;
+        if priority_vec(available_nodes(nid)) ~= node_count
+             x = find(priority_vec == node_count);
+             priority_vec(available_nodes(nid)) = node_count;
+             priority_vec(x) = node_count + 1;
+        end
         n_tx = min(packets_vec(available_nodes(nid)), N_slots_per_frame - u);
         n_delivered = get_delivered_packets(n_tx, channel_prob(available_nodes(nid)));
         deficit_vec(available_nodes(nid)) = deficit_vec(available_nodes(nid)) - n_delivered; 
@@ -40,6 +47,7 @@ while u < N_slots_per_frame
         u = u + n_tx;
     end
 end
+
 deficit_history(:,t) = deficit_vec;
 end
 deficit_history_avg =  deficit_history_avg + deficit_history;

@@ -1,4 +1,4 @@
-function [backoff_vec, priority_vec] = get_backoff(priority_vec, swap_id, access_probability)
+function backoff_vec = get_backoff(priority_vec, swap_id, access_probability)
 N_links = length(priority_vec);
 backoff_vec = zeros(N_links, 1);
 for i=1:N_links
@@ -16,6 +16,6 @@ else
     end
 end
 end
-    [B, I] = sort(backoff_vec, 'ascend');
-    priority_vec(I) = (1:1:N_links)';
+    %[B, I] = sort(backoff_vec, 'ascend');
+    %priority_vec(I) = (1:1:N_links)';
 end
