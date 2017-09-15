@@ -1,0 +1,38 @@
+%% Distributed Algorithm For Ultra-low latency wireless
+
+%% Part 1: Configuration
+N_frames = 1000;
+N_slots_per_frame = 5;
+N_links = 5;
+
+%% Part 2: Distributed Algorithm
+
+priority_vec = zeros(N_links, 1);
+backoff_vec = zeros(N_links, 1);
+packets_vec = zeros(N_links, 1);
+deficit_vec = zeros(N_links, 1); % use delivery debt
+access_prob = zeros(N_links, 1);
+channel_prob = zeros(N_links, 1);
+
+for t=1:N_frames
+    
+swap_id = (N_links - 1)*rand(1);    
+access_prob = exp(max(0,deficit).*channel_prob);
+backoff_vec = get_backoff(priority_vec, swap_id, access_prob);
+packets_vec = get_arrivals();
+u = 0;
+while u < N_slots_per_frame
+    available_nodes = find((backoff_vec >= 0).*(packets_vec > 0));
+    if len
+        
+    else
+    [val, nid] = min(backoff_vec(available_nodes)); 
+    backoff_vec = backoff_vec - val;
+    n_tx = min(packets_vec(available_nodes(nid)), N_slots_per_frame - u);
+    deficit_vec(available_nodes(nid)) = deficit_vec(available_nodes(nid)) - n_tx; 
+    u = u + n_tx;
+end
+
+
+    
+end
