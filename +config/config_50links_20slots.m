@@ -1,0 +1,21 @@
+%% Configuration File
+% 50 links, deadline = 20 slots
+N_runs = 1;
+N_frames = 5000;
+N_slots_per_frame = 20;
+N_links = 50;
+arrival_density = 0.2;
+qmax = 0.85*arrival_density;
+rho = 1;
+qn = qmax*rho*ones(N_links,1); 
+channel_prob = 0.5*ones(N_links, 1);
+arrival_type = 'Bernoulli'; % One, Uniform, Bernoulli
+arrival_prob = arrival_density*ones(N_links, 1);
+weight_mode = 'log';
+arrival_per_frame_max = 3*ones(N_links, 1);
+beta = 0;
+%policy = 'LDF';
+policy = 'decentralized';
+gamma = 1;
+N_swap = 20;
+heavy_ball = 1;

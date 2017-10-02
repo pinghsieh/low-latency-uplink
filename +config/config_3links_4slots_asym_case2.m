@@ -1,0 +1,20 @@
+%% Configuration File
+% 3 links, deadline = 4 slots, asymmetric qn
+N_runs = 100;
+N_frames = 1000;
+N_slots_per_frame = 4;
+N_links = 3;
+qmax = 0.4752;
+rho = 0.999;
+qn = 1*qmax*rho*ones(N_links, 1); 
+channel_prob = [0.2; 0.5; 0.8];
+arrival_type = 'Bernoulli'; % One, Uniform, Bernoulli
+arrival_prob = 1*ones(N_links, 1);
+weight_mode = 'log';
+arrival_per_frame_max = 3*ones(N_links, 1);
+beta = 0;
+policy = 'LDF';
+%policy = 'decentralized';
+gamma = 1;
+N_swap = 1;
+heavy_ball = 1;
