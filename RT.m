@@ -23,7 +23,7 @@ end
 % Log file
 fileID = fopen(filepath, 'a');
 fprintf(fileID, '\n************************************************************\n');
-fprintf(fileID, '*** Date Time: %s\n', datetime('now'));
+fprintf(fileID, '*** Date Time: %s\n', datestr(now,'dd-mm-yyyy HH:MM:SS '));
 fprintf(fileID,'*** Case ID: %d\n*** N links = %d, deadline = %d ms, N runs = %d, N frames = %d\n', case_id, N_links, frame_length, N_runs, N_frames);
 fprintf(fileID, '*** Policy = %s, N_swap = %d \n', policy, N_swap);
 formatSpec = '%.3f ';
@@ -65,7 +65,7 @@ id_to_priority_vec_next = id_to_priority_vec;
 for t=1:N_frames
     
 % For debug
-if rem(t,1000) == 0
+if rem(t,5000) == 0
     fprintf('t = %d\n', t);
 end
 % Update state variables at the beginning of each frame

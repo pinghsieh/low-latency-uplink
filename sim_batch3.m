@@ -2,15 +2,15 @@
 clear;
 tic;
 filepath = './log/RT3.log';
-N_runs = 20;
+N_runs = 1;
 N_frames = 50000;
 case_id = 1;
-policy = {'decentralized', 'LDF'};
+%policy = {'decentralized', 'LDF'};
 %policy = {'decentralized'};
-%policy = {'LDF'};
+policy = {'LDF'};
 rho = 0.9;
-lambda_val = [0.6, 0.58, 0.56, 0.54, 0.52, 0.5, 0.45, 0.4];
-%lambda_val = 0.4;
+%lambda_val = [0.6, 0.58, 0.56, 0.54, 0.52, 0.5, 0.45, 0.4];
+lambda_val = [0.62, 0.61];
 alpha_val = 0;
 N_swap = 1;
 for j=1:length(lambda_val)
