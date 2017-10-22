@@ -1,6 +1,6 @@
 function [swap_vec_id, swap_vec_priority, swap_pid] = get_swap_vec(N_links, N_swap, priority_to_id_vec, SWAP_LEAD, SWAP_TRAIL)
-if N_swap > floor(N_links/2)
-     N_swap = floor(N_links/2);
+if N_swap > floor((N_links-1)/2)
+     N_swap = floor((N_links-1)/2);
 end
 swap_vec_id = zeros(N_links, 1);
 swap_vec_priority = zeros(N_links, 1);
