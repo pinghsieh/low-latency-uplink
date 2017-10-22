@@ -65,7 +65,7 @@ id_to_priority_vec_next = id_to_priority_vec;
 for t=1:N_frames
     
 % For debug
-if rem(t,1000) == 0
+if rem(t,5000) == 0
     fprintf('t = %d\n', t);
 end
 % Update state variables at the beginning of each frame

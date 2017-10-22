@@ -2,7 +2,7 @@
 clear;
 tic;
 filepath = './log/RT4.log';
-N_runs = 20;
+N_runs = 1;
 N_frames = 50000;
 case_id = 1;
 %policy = {'decentralized', 'LDF'};
