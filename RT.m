@@ -15,9 +15,9 @@ switch case_id
     case 2
         config.config_RT_20links_20ms_asymmetric;    
     case 3
-        config.config_RT_20links_2ms;
+        config.config_RT_10links_2ms;
     otherwise
-        config.config_RT_20links_2ms;       
+        config.config_RT_10links_2ms;       
 end
 
 % Log file

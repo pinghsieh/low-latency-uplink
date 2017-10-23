@@ -1,23 +1,85 @@
 %% Results for case id = 1
 % 20 links, deadline = 20ms
+clear;
 N_links = 20;
 %% Part 1: delivery ratio = 0.9
-lambda_LDF = [0.6, 0.59, 0.58, 0.57, 0.56];
+lambda_LDF = [0.605, 0.6, 0.59, 0.58, 0.57, 0.56, 0.5, 0.4];
 N_runs = length(lambda_LDF);
 time_average_deficit_LDF = zeros(N_runs, N_links);
-time_average_deficit_LDF(1,:) = [3.4 4.9 3.8 3.6 3.6 4.0 4.2 3.9 4.2 3.6 4.3 4.2 4.2 4.1 3.3 4.0 4.5 4.2 3.7 3.8];
-time_average_deficit_LDF(2,:) =
-time_average_deficit_LDF(3,:) = [0.0 0.0 0.0 0.0 0.0 0.1 0.0 0.1 0.0 0.1 0.0 0.5 0.3 0.0 0.0 0.0 0.0 0.0 0.0 0.0];
-time_average_deficit_LDF(4,:) =
-time_average_deficit_LDF(5,:) = [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1];
+time_average_deficit_LDF(1,:) = [78.9 79.2 79.6 79.2 79.9 79.3 79.5 79.4 78.6 79.2 79.7 77.5 78.3 79.6 80.1 78.4 80.2 79.1 78.8 80.5];
+time_average_deficit_LDF(2,:) = [3.4 4.9 3.8 3.6 3.6 4.0 4.2 3.9 4.2 3.6 4.3 4.2 4.2 4.1 3.3 4.0 4.5 4.2 3.7 3.8];
+time_average_deficit_LDF(3,:) = [0.1 0.0 0.1 0.6 0.0 0.1 0.1 0.0 0.2 0.0 0.2 0.0 0.0 0.0 0.3 0.0 0.1 0.0 0.0 0.1];
+time_average_deficit_LDF(4,:) = [0.0 0.0 0.0 0.0 0.0 0.1 0.0 0.1 0.0 0.1 0.0 0.5 0.3 0.0 0.0 0.0 0.0 0.0 0.0 0.0];
+time_average_deficit_LDF(5,:) = [0.1 0.0 0.1 0.0 0.5 0.1 0.0 0.0 0.1 0.0 0.0 0.0 0.0 0.1 0.1 0.0 0.0 0.0 0.0 0.0];
+time_average_deficit_LDF(6,:) = [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1];
+time_average_deficit_LDF(7,:) = [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.2 0.0 0.0];
+time_average_deficit_LDF(8,:) = [0.5 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.2 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0]; 
 
-lambda_decentralized = [0.6, 0.58, 0.56, 0.54, 0.5];
+lambda_decentralized = [0.6, 0.59, 0.58, 0.57, 0.56, 0.54, 0.5, 0.4];
 N_runs = length(lambda_decentralized);
 time_average_deficit_dec = zeros(N_runs, N_links);
 time_average_deficit_dec(1,:) = [128.4 124.5 74.5 80.5 125.8 81.0 107.6 108.1 110.7 136.7 96.6 84.7 97.4 102.6 130.8 72.7 99.0 124.2 124.3 97.3];
-time_average_deficit_dec(2,:) = [4.4 9.7 2.4 3.2 13.0 5.3 1.7 3.7 7.0 3.5 2.8 4.3 3.7 6.3 2.5 1.4 4.7 2.6 4.2 6.7];
-time_average_deficit_dec(3,:) = [1.4 0.6 0.9 0.2 2.2 1.4 1.0 0.6 1.4 2.6 2.5 2.6 2.8 1.1 2.2 0.8 2.5 2.9 3.3 1.1];
-time_average_deficit_dec(4,:) = [0.6 0.9 0.3 0.4 0.7 1.4 0.3 1.4 0.9 0.3 1.8 0.8 0.5 2.6 0.8 1.1 1.2 1.4 0.8 0.7]; 
-time_average_deficit_dec(5,:) = [0.0 0.2 0.8 0.1 0.7 0.5 0.1 0.1 0.1 0.0 0.2 0.3 0.5 0.3 0.1 0.4 0.2 0.5 0.2 0.2];
+time_average_deficit_dec(2,:) = [11.1 7.8 5.4 7.5 6.2 14.1 6.4 15.4 10.6 5.5 5.6 5.1 6.4 6.0 4.9 7.0 19.9 5.8 13.9 11.8];
+time_average_deficit_dec(3,:) = [4.4 9.7 2.4 3.2 13.0 5.3 1.7 3.7 7.0 3.5 2.8 4.3 3.7 6.3 2.5 1.4 4.7 2.6 4.2 6.7];
+time_average_deficit_dec(4,:) = [5.0 2.7 0.9 5.1 2.1 1.3 1.8 1.3 9.5 3.1 1.1 2.4 7.2 2.7 2.1 1.2 3.2 0.9 3.8 2.6];
+time_average_deficit_dec(5,:) = [1.4 0.6 0.9 0.2 2.2 1.4 1.0 0.6 1.4 2.6 2.5 2.6 2.8 1.1 2.2 0.8 2.5 2.9 3.3 1.1];
+time_average_deficit_dec(6,:) = [0.6 0.9 0.3 0.4 0.7 1.4 0.3 1.4 0.9 0.3 1.8 0.8 0.5 2.6 0.8 1.1 1.2 1.4 0.8 0.7]; 
+time_average_deficit_dec(7,:) = [0.0 0.2 0.8 0.1 0.7 0.5 0.1 0.1 0.1 0.0 0.2 0.3 0.5 0.3 0.1 0.4 0.2 0.5 0.2 0.2];
+time_average_deficit_dec(8,:) = [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1 0.0 0.0 0.2 0.0 0.1 0.0 0.0 0.0 0.0 0.0 0.2 0.0]; 
 
-%% Part 2: alpha = 0.6
+lambda_fastCSMA = [0.45 0.42 0.39 0.36 0.33 0.3 0.27];
+N_runs_fCSMA = length(lambda_fastCSMA);
+time_average_deficit_fCSMA = zeros(N_runs_fCSMA, N_links);
+time_average_deficit_fCSMA(1,:) = [234.5 170.1 87.4 58.1 74.4 175.1 68.9 56.8 100.7 118.4 68.7 73.4 69.5 62.6 61.8 99.1 170.2 85.8 67.8 64.2];
+time_average_deficit_fCSMA(2,:) = [28.1 33.3 26.3 22.8 25.3 33.4 23.7 29.3 28.7 29.7 25.4 39.2 31.4 59.1 28.7 26.4 31.6 26.5 25.9 26.1];
+time_average_deficit_fCSMA(3,:) = [19.2 22.8 21.4 23.8 21.8 17.3 20.7 21.1 22.7 20.8 22.3 23.0 25.8 27.6 25.4 18.1 25.8 19.1 23.2 26.4];
+time_average_deficit_fCSMA(4,:) = [17.5 18.2 23.2 20.4 16.3 18.3 20.7 20.4 20.6 19.2 20.3 20.1 22.0 19.4 21.2 20.2 19.0 25.2 21.4 18.0];
+time_average_deficit_fCSMA(5,:) = [20.0 19.8 16.0 18.6 23.0 19.6 17.4 19.6 20.9 19.2 20.1 20.0 19.5 20.3 20.6 20.4 16.8 19.2 17.0 18.4];
+time_average_deficit_fCSMA(6,:) = [20.9 16.9 18.6 20.9 16.9 17.2 19.9 18.1 18.5 16.9 19.2 17.3 16.5 17.3 19.3 17.3 20.6 19.4 16.3 18.9];
+time_average_deficit_fCSMA(7,:) = [18.4 18.9 19.6 17.7 19.6 17.6 18.7 16.7 17.6 17.6 20.2 17.4 17.6 18.4 18.6 17.4 16.5 17.8 19.2 22.4];
+
+%createfigure_3lines_case1(lambda_LDF, mean(time_average_deficit_LDF,2), lambda_decentralized, mean(time_average_deficit_dec,2), lambda_fastCSMA, mean(time_average_deficit_fCSMA,2));
+createfigure_6lines_case1(lambda_LDF, mean(time_average_deficit_LDF,2), lambda_LDF, max(time_average_deficit_LDF,[],2),...
+                        lambda_decentralized, mean(time_average_deficit_dec,2), lambda_decentralized, max(time_average_deficit_dec,[], 2),...
+                        lambda_fastCSMA, mean(time_average_deficit_fCSMA,2), lambda_fastCSMA, max(time_average_deficit_fCSMA,[], 2));
+
+%% Part 2: lambda = 0.55
+clear;
+N_links = 20;
+
+rho_LDF = [0.94, 0.935, 0.93, 0.92, 0.91, 0.9];
+N_runs_LDF = length(rho_LDF);
+time_average_deficit_LDF = zeros(N_runs_LDF, N_links);
+time_average_deficit_LDF(1,:) = [392.9 388.7 387.0 389.4 390.3 389.9 391.8 390.4 387.4 392.4 388.3 392.3 388.4 386.4 388.2 390.3 390.6 390.3 389.8 392.7];
+time_average_deficit_LDF(2,:) = [52.8 50.6 53.6 55.4 53.5 50.7 53.0 52.7 54.2 53.0 58.2 50.0 51.2 53.3 51.8 52.0 50.7 51.8 54.1 51.8];
+time_average_deficit_LDF(3,:) = [0.4 0.0 0.0 0.1 0.6 0.0 0.1 0.0 0.0 0.1 0.0 0.1 0.0 0.1 0.0 0.0 0.0 0.1 0.0 0.4];
+time_average_deficit_LDF(4,:) = [0.1 0.0 0.0 0.1 0.0 0.1 0.2 0.1 0.0 0.7 0.0 0.0 0.0 0.0 0.1 0.1 0.1 0.0 0.1 0.0];
+time_average_deficit_LDF(5,:) = [0.0 0.1 0.0 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1 0.0 0.0 0.1 0.0 0.0 0.1 0.0];
+time_average_deficit_LDF(6,:) = [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0]; 
+
+rho_dec = [0.93, 0.92, 0.91, 0.9, 0.88, 0.85];
+N_runs_dec = length(rho_dec);
+time_average_deficit_dec = zeros(N_runs_dec, N_links);
+time_average_deficit_dec(1,:) = [149.0 87.3 125.0 128.9 151.5 106.9 78.3 123.6 126.8 100.8 121.2 129.3 128.5 106.4 121.4 125.8 119.6 117.6 146.5 168.1 ];
+time_average_deficit_dec(2,:) = [8.6 4.0 7.5 9.2 5.0 4.1 4.0 3.0 4.2 6.4 4.1 6.4 3.0 3.9 5.1 4.5 5.2 7.0 5.6 7.7];
+time_average_deficit_dec(3,:) = [2.8 2.0 0.7 1.6 1.5 3.5 1.2 3.3 0.7 0.9 2.0 2.3 2.5 1.4 1.5 0.3 1.7 1.9 1.0 2.1]; 
+time_average_deficit_dec(4,:) = [1.7 0.8 1.5 0.3 1.4 1.9 1.9 1.1 0.7 4.1 0.7 1.5 1.4 0.8 0.4 2.0 2.8 1.2 1.2 2.2]; 
+time_average_deficit_dec(5,:) = [0.3 0.3 2.4 0.7 0.3 0.5 0.3 0.4 0.1 0.6 1.5 0.4 0.4 1.0 0.5 0.7 0.3 1.2 0.2 2.4];
+time_average_deficit_dec(6,:) = [1.1 0.3 0.8 0.0 0.5 0.4 0.0 0.7 0.4 0.4 0.8 0.0 0.2 0.0 0.1 0.4 0.1 0.0 0.1 0.5];
+
+
+rho_fCSMA = [0.82, 0.81, 0.8, 0.79, 0.77, 0.75];
+N_runs_fCSMA = length(rho_fCSMA);
+time_average_deficit_fCSMA = zeros(N_runs_fCSMA, N_links);
+
+time_average_deficit_fCSMA(1,:) = [305.6 341.4 83.1 142.5 220.9 196.3 244.9 186.0 285.1 162.9 134.2 114.2 101.7 137.4 335.5 67.7 211.8 152.0 136.1 151.6];
+time_average_deficit_fCSMA(2,:) = [27.5 25.8 23.9 26.7 29.0 26.9 29.6 30.8 32.9 29.3 31.7 27.3 27.1 22.5 28.3 35.1 32.1 26.9 29.3 23.3 ];
+time_average_deficit_fCSMA(3,:) = [16.3 17.5 17.8 17.0 17.9 17.1 17.7 15.5 18.9 16.1 15.4 15.7 17.7 15.6 16.6 16.7 16.9 16.4 16.0 15.5];
+time_average_deficit_fCSMA(4,:) = [12.2 13.3 13.1 13.3 12.3 13.1 13.0 13.5 12.7 12.1 12.8 12.3 13.1 13.0 12.8 13.6 13.1 12.9 12.2 12.8];
+time_average_deficit_fCSMA(5,:) = [9.8 9.8 10.5 9.7 9.9 9.9 10.2 10.4 9.9 9.7 9.5 10.0 9.8 10.1 9.5 9.7 9.8 10.2 9.9 9.7];
+time_average_deficit_fCSMA(6,:) = [8.5 8.5 8.4 8.5 8.6 8.7 8.6 8.6 8.6 8.4 8.5 8.6 8.3 8.6 8.5 8.4 8.4 8.6 8.6 8.7];
+
+%createfigure_3lines_case1(rho_LDF, mean(time_average_deficit_LDF,2), rho_dec, mean(time_average_deficit_dec,2),rho_fCSMA, mean(time_average_deficit_fCSMA,2));
+createfigure_6lines_case1(rho_LDF, mean(time_average_deficit_LDF,2), rho_LDF, max(time_average_deficit_LDF,[],2),...
+                        rho_dec, mean(time_average_deficit_dec,2), rho_dec, max(time_average_deficit_dec,[], 2),...
+                        rho_fCSMA, mean(time_average_deficit_fCSMA,2), rho_fCSMA, max(time_average_deficit_fCSMA,[], 2));
